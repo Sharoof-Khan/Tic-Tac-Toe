@@ -18,6 +18,13 @@ table td{
     font-weight: 900;
     font-size: 2.5rem;
 }
+@media screen and (max-width:600px){
+    table td{
+        height: 50px;
+        width: 50px;
+    }
+    
+}
 td{
     cursor: pointer;
 }
