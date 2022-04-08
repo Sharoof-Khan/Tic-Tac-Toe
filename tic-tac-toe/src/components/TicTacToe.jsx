@@ -115,16 +115,17 @@ export const TicTacToe = () => {
                   <tr></tr>
               </tbody>
               </table>
-              {
+              
+          </div>
+          {
                   winnerGame && (
                       <>
-                          <h1>Congrats {winnerGame} is a Winner</h1>
+                          <h2>Congrats {winnerGame} is a Winner</h2>
                           
                           <button onClick={()=> handleRestart()}>Play Again</button>
                       </>
                   )
               }
-          </div>
           
       </div>
   )
