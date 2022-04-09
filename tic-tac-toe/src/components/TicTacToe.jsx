@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 // import { Cell } from './Cell'
 import './TicTccToe.css'
 
@@ -8,6 +8,13 @@ export const TicTacToe = () => {
     const [cells, setCells] = useState(Array(9).fill(""))
     const [winnerGame,setWinnerGame] = useState()
     
+
+    const handleRestart = () => {
+        setWinnerGame(null);
+        setCells(Array(9).fill(""))
+        setTurn('X')
+        
+    }
     const winner = (sqr) => {
         let combos = {
             across: [[0, 1, 2],
@@ -35,8 +42,10 @@ export const TicTacToe = () => {
                 ) {
                     //  Do nothing
                 } else if (sqr[pat[0]] === sqr[pat[1]] && sqr[pat[1]] === sqr[pat[2]]) {
-                    // alert(`Winner is ${sqr[pat[0]]}`)
+                    // handleRestart()
+                    // alert(`Congrats Winner is ${sqr[pat[0]]} `)
                     setWinnerGame(sqr[pat[0]])
+
 
                     
                 }
@@ -78,15 +87,13 @@ export const TicTacToe = () => {
     }
 
     // console.log(cells,'cell');
-    const handleRestart = () => {
-        setWinnerGame(null);
-        setCells(Array(9).fill(""))
-        setTurn('X')
-        
-    }
+    
     const Cell = ({ cellNo }) => {
         return <td onClick={() => handleClick(cellNo)}>{ cells[cellNo]}</td>
     }
+
+
+    
 
 
   return (
@@ -120,12 +127,35 @@ export const TicTacToe = () => {
           {
                   winnerGame && (
                       <>
-                          <h2>Congrats {winnerGame} is a Winner</h2>
+                      <h2>Congrats {winnerGame} is a Winner</h2>
+                      {/* {handleRestart()} */}
+
+
+                     { setTimeout(() => {
                           
-                          <button onClick={()=> handleRestart()}>Play Again</button>
+                          handleRestart()
+                           
+                      }, 5000)
+                     
+                  
+                     }  
+                      
+
+                      
+                   
+                          
+     
+                          
+                          
+         
+                      
+                          
+                          {/* <button onClick={()=> handleRestart()}>Play Again</button> */}
                       </>
                   )
-              }
+          }
+                          <button onClick={()=> handleRestart()}>Restart Game</button>
+          
           
       </div>
   )
