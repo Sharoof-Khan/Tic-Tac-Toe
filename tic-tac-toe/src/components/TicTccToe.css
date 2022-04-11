@@ -41,6 +41,14 @@ button{
     width: 300px;
     font-size: larger;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: black;
+    color: aliceblue;
+    border: 2px solid red;
+    font-weight: 800;
 }
 .heading{
     border: 1px solid gray;

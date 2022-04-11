@@ -126,19 +126,36 @@ export const TicTacToe = () => {
           </div>
           {
                   winnerGame && (
-                      <>
-                      <h2>Congrats {winnerGame} is a Winner</h2>
-                      {/* {handleRestart()} */}
-
-
-                     { setTimeout(() => {
-                          
-                          handleRestart()
-                           
-                      }, 5000)
                      
-                  
-                     }  
+                     
+                      
+                //   useEffect(() => {
+
+                //       let res = setTimeout(() => {
+                //           handleRestart()
+                //       }, 5000)
+                      
+                //       return ()=> clearTimeout(res)
+                          
+                //       },[])
+                    
+              
+                
+                      <div>
+                          
+                      <h2>Congrats {winnerGame} is a Winner</h2>
+
+                      {
+                          setTimeout(() => {
+
+                              handleRestart();
+                              
+                          },5000)
+                      }
+
+                      
+
+
                       
 
                       
@@ -150,12 +167,10 @@ export const TicTacToe = () => {
          
                       
                           
-                          {/* <button onClick={()=> handleRestart()}>Play Again</button> */}
-                      </>
+                      </div>
                   )
           }
-                          <button onClick={()=> handleRestart()}>Restart Game</button>
-          
+            <button onClick={()=> handleRestart()}>Restart</button>          
           
       </div>
   )
